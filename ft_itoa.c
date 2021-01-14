@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 14:52:44 by dwanetta          #+#    #+#             */
-/*   Updated: 2020/11/03 20:25:09 by dwanetta         ###   ########.fr       */
+/*   Updated: 2021/01/15 01:18:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ int		ft_chek(int tmp)
 
 int		ft_chek_u(unsigned int tmp)
 {
-    int		i;
+	int		i;
 
-    i = 0;
-    while (1)
-    {
-        tmp /= 10;
-        i++;
-        if (tmp == 0)
-            break ;
-    }
-    return (i);
+	i = 0;
+	while (1)
+	{
+		tmp /= 10;
+		i++;
+		if (tmp == 0)
+			break ;
+	}
+	return (i);
 }
 
 char	*ft_itoa(int n)

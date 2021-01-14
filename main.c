@@ -10,7 +10,7 @@ int main()
 	b = "abcd";
 	printf("     %d\n", ft_printf("%082.u", 4183054859u));
 	printf("\n");
-	printf("     %d\n", printf("%% *.5i 42 == |%*.5i|", 4, 42));
+	printf("     %d\n", printf("%082.u", 4183054859u));
 /*
 	int res;
 	int ft_res;

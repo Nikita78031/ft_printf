@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+    /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
@@ -114,6 +114,8 @@ void ft_print_dec(va_list ap, char fmt, t_flag *flag, int *return_value)
     dec = 0;
     if (fmt == 'u')
     {
+        if (flag->dot == 1)
+            flag->zero = 0;
         u_dec = va_arg(ap, unsigned int);
         size = ft_chek_u(u_dec);
         *return_value += ft_print_format(*flag, size, u_dec);
@@ -156,8 +158,10 @@ void ft_print_hex(va_list ap, char fmt, t_flag *flag, int *return_value)
     {
         ull_dec = va_arg(ap, unsigned long long int);
         ft_puthex_pointer(fmt, ull_dec, &hex);
-        if (flag->size_width != 0)
+        if (flag->size_width > 0)
             flag->size_width -=2;
+        else if (flag->size_width < 0 )
+            flag->size_width +=2;
     }
     size = ft_strlen(hex);
     if (flag->dot == 1 && flag->count_simbol == 0 && u_dec == 0 && ull_dec == 0)
@@ -278,27 +282,19 @@ int ft_printf(const char *fmt, ...)
     while (fmt[i] != '\0')
     {
         count = 0;
-        if (fmt[i] == '%' /*&& fmt[i + 1] != '%'*/ && (count = ft_check_specifier(fmt + i)) > 0)
+        if (fmt[i] == '%' && (count = ft_check_specifier(fmt + i)) > 0)
         {
             ft_check_format(ap, fmt, i, &return_value);
             i += count - 1;
         }
         if (fmt[i] != '%' && count == 0)
             return_value += ft_putchar(fmt[i]);
-        /*if (fmt[i] == '%' && fmt[i + 1] == '%')
-        {
-            //return_value += ft_putchar(fmt[i]);
-            i+= 2;
-        }
-        else*/
-            i++;
+        i++;
     }
     return (return_value);
 }
 
 
-
-/*
 int	main()
 {
 
@@ -306,10 +302,9 @@ int	main()
     char *b;
     a = 2;
     b = "abcd";
-    printf("     %d\n",  ft_printf("%5.p", NULL));
+    printf("     %d\n",  ft_printf("%082.u" ,4183054859u));
     printf("\n");
-    printf("     %d\n",     printf("%5.p", NULL));
-*/
+    printf("     %d\n",     printf("%% *.5i 42 == |%*.5i|", 4, 42));
 
 /*
     int		res;
@@ -710,7 +705,7 @@ int	main()
     printf("---------------------------------------------------------\n", &s);
     ft_printf("%%%%%%%%d\n", 42);
     printf("%%%%%%%%d\n", 42);
-    }
-*/
-/*    return 0;
-}*/
+    }*/
+
+    return 0;
+}

@@ -102,7 +102,8 @@ void	ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 			chek_size_flags(ap, fmt, &flag.size_width, &i);
 		if ((ft_isdigit(fmt[i]) || fmt[i] == '*') && flag.dot == 1 && flag.count_simbol == 0)
 			chek_size_flags(ap, fmt, &flag.count_simbol, &i);
-		if (fmt[i] == 'd' || fmt[i] == 'i' || fmt[i] == 'u' || fmt[i] == 'x' || fmt[i] == 'X' || fmt[i] == 'p' || fmt[i] == 's' || fmt[i] == 'c' || fmt[i] == '%')
+		if (fmt[i] == 'd' || fmt[i] == 'i' || fmt[i] == 'u' || fmt[i] == 'x' || fmt[i] == 'X'
+		|| fmt[i] == 'p' || fmt[i] == 's' || fmt[i] == 'c' || fmt[i] == '%')
 		{
 			*return_value += ft_print_type(ap, fmt[i], &flag);
 			break;

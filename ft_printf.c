@@ -275,9 +275,9 @@ int	main()
     char *b;
     a = 2;
     b = "abcd";
-    printf("     %d\n",  ft_printf("%5.2d", 10));
+    printf("     %d\n",  ft_printf("%d", 10));
     printf("\n");
-    printf("     %d\n",   printf("%5.2d",10));
+    printf("     %d\n",   printf("%d",10));
     /*int a;
     printf("%p\n",&a);
     unsigned int p = (unsigned int)&a;

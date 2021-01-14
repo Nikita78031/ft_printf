@@ -182,6 +182,16 @@ void ft_print_char(va_list ap, char fmt, t_flag *flag, int *return_value)
     }
 }
 
+void ft_print_procent(t_flag *flag, int *return_value)
+{
+    flag->dot = 0;
+    flag->count_simbol = 0;
+    ft_print_format(*flag, 1, 1);
+    flag->size_width++;
+    *return_value += ft_putchar('%');
+    *return_value += ft_print_format_left(flag, 1);
+}
+
 int ft_print_type(va_list ap, char fmt, t_flag *flag)
 {
     int return_value;
@@ -193,6 +203,8 @@ int ft_print_type(va_list ap, char fmt, t_flag *flag)
         ft_print_hex(ap, fmt, flag, &return_value);
     if (fmt == 'c' || fmt == 's')
         ft_print_char(ap, fmt, flag, &return_value);
+    if (fmt == '%')
+        ft_print_procent(flag, &return_value);
     return (return_value);
 }
 
@@ -248,7 +260,7 @@ int ft_printf(const char *fmt, ...)
             return_value += ft_putchar(fmt[i]);
         if (fmt[i] == '%' && fmt[i + 1] == '%')
         {
-            return_value += ft_putchar(fmt[i]);
+            //return_value += ft_putchar(fmt[i]);
             i+= 2;
         }
         else
@@ -263,9 +275,9 @@ int	main()
     char *b;
     a = 2;
     b = "abcd";
-    printf("     %d\n", ft_printf("%05d", a));
+    printf("     %d\n",  ft_printf("%5.2d", 10));
     printf("\n");
-    printf("     %d\n",  printf("%05%"));
+    printf("     %d\n",   printf("%5.2d",10));
     /*int a;
     printf("%p\n",&a);
     unsigned int p = (unsigned int)&a;

@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 CC = gcc
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 OPTION = -c -I $(HEADER)
 SRCS =	ft_printf.c\
@@ -26,8 +26,8 @@ SRCS =	ft_printf.c\
 		ft_print_char.c\
 		ft_print_dec.c\
 		ft_print_format.c\
-		ft_print_hex.c\
-		main.c
+		ft_print_hex.c#\
+		#main.c
 
 OBJS_SRCS = ${SRCS:.c=.o}
 

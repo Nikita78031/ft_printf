@@ -42,7 +42,7 @@ void ft_puthex(char fmt, unsigned int u_dec, char **hex)
     }
 }
 
-void ft_puthex_pointer(char fmt, unsigned long long int ull_dec, char **hex)
+void ft_puthex_pointer(unsigned long long int ull_dec, char **hex)
 {
     char *str;
     unsigned long long int tmp;

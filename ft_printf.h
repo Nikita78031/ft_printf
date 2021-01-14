@@ -41,6 +41,6 @@ int		    ft_chek(int tmp);
 void        ft_puthex(char fmt, unsigned int u_dec, char **hex);
 int	        ft_strlen(const char *str);
 int	        ft_putstr(char *s, int flag);
-void        ft_puthex_pointer(char fmt, unsigned long long int ull_dec, char **hex);
+void        ft_puthex_pointer(unsigned long long int ull_dec, char **hex);
 
 #endif

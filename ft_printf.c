@@ -157,7 +157,7 @@ void ft_print_hex(va_list ap, char fmt, t_flag *flag, int *return_value)
     else
     {
         ull_dec = va_arg(ap, unsigned long long int);
-        ft_puthex_pointer(fmt, ull_dec, &hex);
+        ft_puthex_pointer(ull_dec, &hex);
         if (flag->size_width > 0)
             flag->size_width -=2;
         else if (flag->size_width < 0 )
@@ -295,7 +295,7 @@ int ft_printf(const char *fmt, ...)
 }
 
 
-int	main()
+/*int	main()
 {
 
     int a;
@@ -304,7 +304,7 @@ int	main()
     b = "abcd";
     printf("     %d\n",  ft_printf("%082.u" ,4183054859u));
     printf("\n");
-    printf("     %d\n",     printf("%% *.5i 42 == |%*.5i|", 4, 42));
+    printf("     %d\n",     printf("%% *.5i 42 == |%*.5i|", 4, 42));*/
 
 /*
     int		res;
@@ -707,5 +707,5 @@ int	main()
     printf("%%%%%%%%d\n", 42);
     }*/
 
-    return 0;
-}
+/*    return 0;
+}*/

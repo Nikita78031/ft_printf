@@ -23,6 +23,10 @@ SRCS =	ft_printf.c\
 		ft_putnbr.c\
 		ft_puthex.c\
 		ft_putstr.c\
+		ft_print_char.c\
+		ft_print_dec.c\
+		ft_print_format.c\
+		ft_print_hex.c\
 		main.c
 
 OBJS_SRCS = ${SRCS:.c=.o}

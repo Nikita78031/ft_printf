@@ -38,5 +38,15 @@ void	ft_puthex(char fmt, unsigned int u_dec, char **hex);
 int		ft_strlen(const char *str);
 int		ft_putstr(char *s, int flag);
 void	ft_puthex_pointer(unsigned long long int ull_dec, char **hex);
+void	ft_puthex_pointer(unsigned long long int ull_dec, char **hex);
+void	ft_print_str(va_list ap, t_flag *flag, int *return_value);
+void	ft_print_procent(t_flag *flag, int *return_value);
+void	ft_print_dec(va_list ap, t_flag *flag, int *return_value);
+void	ft_print_u_dec(va_list ap, t_flag *flag, int *return_value);
+int		ft_print_format(t_flag flag, int size, long int value);
+int		ft_print_format_left(t_flag *flag, int size, long int value);
+void	ft_print_hex(va_list ap, char fmt, t_flag *flag, int *return_value);
+void	ft_print_pointer(va_list ap, t_flag *flag, int *return_value);
+void	ft_print_char(va_list ap, t_flag *flag, int *return_value);
 
 #endif

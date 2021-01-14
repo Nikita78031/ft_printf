@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-int ft_check_specifier(const char *fmt)
+int		ft_check_specifier(const char *fmt)
 {
-	int i;
-	int j;
-	char *flags;
+	int		i;
+	int		j;
+	char	*flags;
 
 	j = 1;
 	flags = "cspdiuxX%";
@@ -34,7 +34,7 @@ int ft_check_specifier(const char *fmt)
 	return (0);
 }
 
-void chek_size_flags(va_list ap, const char *fmt, int *size, int *i)
+void	chek_size_flags(va_list ap, const char *fmt, int *size, int *i)
 {
 	while (fmt[*i] != '\0')
 	{
@@ -59,197 +59,29 @@ void chek_size_flags(va_list ap, const char *fmt, int *size, int *i)
 	}
 }
 
-int ft_print_format(t_flag flag, int size, long int value)
+int		ft_print_type(va_list ap, char fmt, t_flag *flag)
 {
-	int return_value;
-	char symbol;
-
-	return_value = 0;
-	if (value == 0 && flag.dot != 0 && flag.count_simbol == 0)
-		flag.size_width += 1;
-	if (flag.zero == 0 || flag.count_simbol > 0)
-		symbol = ' ';
-	else
-		symbol = '0';
-	if (value < 0 && symbol != ' ')
-		return_value += ft_putchar('-');
-	if (value < 0)
-		flag.size_width -= 1;
-	if (flag.count_simbol < size)
-		flag.count_simbol = size;
-	while (((flag.size_width--) - flag.count_simbol > 0) && flag.minus == 0)
-		return_value += ft_putchar(symbol);
-	if (value < 0 && symbol == ' ')
-		return_value += ft_putchar('-');
-	while (((flag.count_simbol--) - size) > 0)
-		return_value += ft_putchar('0');
-	return (return_value);
-}
-
-int ft_print_format_left(t_flag *flag, int size, long int value)
-{
-	int return_value;
-
-	return_value = 0;
-	if (flag->size_width < 0)
-	{
-		flag->minus = 1;
-		flag->size_width *= -1;
-		if (value >= 0)
-			flag->size_width += 2;
-	}
-	if (flag->minus == 1 && flag->count_simbol < size)
-		flag->count_simbol = size;
-	while (flag->minus == 1 && (flag->size_width--) - flag->count_simbol - 1 > 0)
-		return_value += ft_putchar(' ');
-	return (return_value);
-}
-
-void ft_print_dec(va_list ap, t_flag *flag, int *return_value)
-{
-	int dec;
-	int size;
-
-	dec = va_arg(ap, int);
-	size = ft_chek(dec);
-	*return_value += ft_print_format(*flag, size, dec);
-	if (dec != 0 || flag->dot == 0 || flag->count_simbol != 0)
-	    *return_value += ft_putnbr(dec, 1);
-	else
-	    flag->size_width++;
-	if (dec >= 0)
-	    flag->size_width++;
-	*return_value += ft_print_format_left(flag, size, dec);
-}
-
-void ft_print_u_dec(va_list ap, t_flag *flag, int *return_value)
-{
-    unsigned int u_dec;
-    int size;
-
-    if (flag->dot == 1)
-        flag->zero = 0;
-    u_dec = va_arg(ap, unsigned int);
-    size = ft_chek_u(u_dec);
-    *return_value += ft_print_format(*flag, size, u_dec);
-    if (u_dec != 0 || flag->dot == 0 || flag->count_simbol != 0)
-        *return_value += ft_putnbr_u(u_dec);
-    else
-        flag->size_width++;
-    flag->size_width++;
-    *return_value += ft_print_format_left(flag, size, 1);
-}
-
-void ft_print_hex(va_list ap, char fmt, t_flag *flag, int *return_value)
-{
-	int size;
-	char *hex;
-	unsigned int u_dec;
-
-	u_dec = va_arg(ap, unsigned int);
-	ft_puthex(fmt, u_dec, &hex);
-	size = ft_strlen(hex);
-	if (flag->dot == 1 && flag->count_simbol == 0 && u_dec == 0)
-		size = 0;
-	*return_value += ft_print_format(*flag, size, 1);
-	flag->size_width++;
-	*return_value += ft_putstr(hex, size);
-	*return_value += ft_print_format_left(flag, size, 1);
-	if (hex != NULL)
-		free(hex);
-}
-
-void ft_print_pointer(va_list ap, t_flag *flag, int *return_value)
-{
-    int size;
-    char *hex;
-    unsigned long long int ull_dec;
-
-    ull_dec = va_arg(ap, unsigned long long int);
-    ft_puthex_pointer(ull_dec, &hex);
-    if (flag->size_width > 0)
-        flag->size_width -= 2;
-    else if (flag->size_width < 0)
-        flag->size_width += 2;
-    size = ft_strlen(hex);
-    if (flag->dot == 1 && flag->count_simbol == 0 && ull_dec == 0)
-        size = 0;
-    *return_value += ft_print_format(*flag, size, 1);
-    *return_value += ft_putchar('0');
-    *return_value += ft_putchar('x');
-    flag->size_width++;
-    *return_value += ft_putstr(hex, size);
-    *return_value += ft_print_format_left(flag, size, 1);
-    if (hex != NULL)
-        free(hex);
-}
-
-void ft_print_char(va_list ap, t_flag *flag, int *return_value)
-{
-	char c;
-
-	flag->zero = 0;
-	flag->dot = 0;
-	flag->count_simbol = 0;
-	c = (char)va_arg(ap, int);
-	ft_print_format(*flag, 1, 1);
-	flag->size_width++;
-	*return_value += ft_putchar(c);
-	*return_value += ft_print_format_left(flag, 1, 1);
-}
-
-void ft_print_str(va_list ap, t_flag *flag, int *return_value)
-{
-    char *str;
-    int size;
-
-    flag->zero = 0;
-    str = va_arg(ap, char *);
-    if (str == NULL)
-        str = "(null)";
-    size = ft_strlen(str);
-    if (size > flag->count_simbol && flag->dot == 1 && flag->count_simbol >= 0)
-        size = flag->count_simbol;
-    flag->count_simbol = 0;
-    *return_value += ft_print_format(*flag, size, 1);
-    flag->size_width++;
-    *return_value += ft_putstr(str, size);
-    *return_value += ft_print_format_left(flag, size, 1);
-}
-
-void ft_print_procent(t_flag *flag, int *return_value)
-{
-	flag->dot = 0;
-	flag->count_simbol = 0;
-	*return_value += ft_print_format(*flag, 1, 1);
-	flag->size_width++;
-	*return_value += ft_putchar('%');
-	*return_value += ft_print_format_left(flag, 1, 1);
-}
-
-int ft_print_type(va_list ap, char fmt, t_flag *flag)
-{
-	int return_value;
+	int	return_value;
 
 	return_value = 0;
 	if (fmt == 'd' || fmt == 'i')
 		ft_print_dec(ap, flag, &return_value);
-    if (fmt == 'u')
-        ft_print_u_dec(ap, flag, &return_value);
+	if (fmt == 'u')
+		ft_print_u_dec(ap, flag, &return_value);
 	if (fmt == 'x' || fmt == 'X')
 		ft_print_hex(ap, fmt, flag, &return_value);
-    if (fmt == 'p')
-        ft_print_pointer(ap, flag, &return_value);
+	if (fmt == 'p')
+		ft_print_pointer(ap, flag, &return_value);
 	if (fmt == 'c')
 		ft_print_char(ap, flag, &return_value);
-    if (fmt == 's')
-        ft_print_str(ap, flag, &return_value);
+	if (fmt == 's')
+		ft_print_str(ap, flag, &return_value);
 	if (fmt == '%')
 		ft_print_procent(flag, &return_value);
 	return (return_value);
 }
 
-void ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
+void	ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 {
 	t_flag flag;
 
@@ -278,12 +110,12 @@ void ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 	}
 }
 
-int ft_printf(const char *fmt, ...)
+int		ft_printf(const char *fmt, ...)
 {
-	va_list ap;
-	int i;
-	int count;
-	int return_value;
+	va_list	ap;
+	int		i;
+	int		count;
+	int		return_value;
 
 	i = 0;
 	return_value = 0;

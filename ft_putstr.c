@@ -22,25 +22,6 @@ int ft_strlen(const char *str)
 	return (i);
 }
 
-/*int	ft_putstr(char *s, int flag)
-{
-	int size;
-	int return_value;
-
-	return_value = 0;
-	if (s != NULL)
-	{
-		if (flag == 0)
-			size = ft_strlen(s);
-		else
-			size = flag;
-		return_value = write(0, s, size);
-	}
-	else
-		return_value = write(0, "(null)", 6);
-	return (return_value);
-}*/
-
 int ft_putstr(char *s, int flag)
 {
 	int	i;

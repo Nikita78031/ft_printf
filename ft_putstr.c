@@ -22,7 +22,7 @@ int	ft_strlen(const char *str)
     return (i);
 }
 
-int	ft_putstr(char *s, int flag)
+/*int	ft_putstr(char *s, int flag)
 {
 	int size;
 	int return_value;
@@ -36,5 +36,33 @@ int	ft_putstr(char *s, int flag)
 	        size = flag;
         return_value = write(0, s, size);
 	}
+	else
+        return_value = write(0, "(null)", 6);
+    return (return_value);
+}*/
+
+int	ft_putstr(char *s, int flag)
+{
+    int i;
+    int return_value;
+
+    return_value = 0;
+    i = 0;
+    if (flag == -1)
+    {
+        while (s[i] != '\0')
+        {
+            return_value += ft_putchar(s[i]);
+            i++;
+        }
+    }
+    else
+    {
+        while (i != flag)
+        {
+            return_value += ft_putchar(s[i]);
+            i++;
+        }
+    }
     return (return_value);
 }

@@ -57,13 +57,10 @@ void ft_puthex_pointer(char fmt, unsigned long long int ull_dec, char **hex)
         tmp /= 16;
         i++;
     }
-    if ((*hex = (char*)malloc(sizeof(char) * i + 3)) != NULL)
+    if ((*hex = (char*)malloc(sizeof(char) * i + 1)) != NULL)
     {
-        i += 2;
-        hex[0][0] = '0';
-        hex[0][1] = 'x';
         hex[0][i] = '\0';
-        while (i != 2) {
+        while (i != 0) {
             i--;
             j = (int) (ull_dec - (16 * (ull_dec / 16)));
             ull_dec /= 16;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 02:16:08 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/15 02:16:08 by dwanetta         ###   ########.fr       */
+/*   Created: 2021/01/15 16:32:39 by dwanetta          #+#    #+#             */
+/*   Updated: 2021/01/15 16:32:58 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	ft_print_format_left(t_flag *flag, int size, long int value)
 	}
 	if (flag->minus == 1 && flag->count_simbol < size)
 		flag->count_simbol = size;
-	while (flag->minus == 1 && (flag->size_width--) - flag->count_simbol - 1 > 0)
+	while (flag->minus == 1 &&
+	(flag->size_width--) - flag->count_simbol - 1 > 0)
 		return_value += ft_putchar(' ');
 	return (return_value);
 }

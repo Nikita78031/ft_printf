@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 16:20:36 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/06 16:24:40 by dwanetta         ###   ########.fr       */
+/*   Created: 2021/01/15 16:57:02 by dwanetta          #+#    #+#             */
+/*   Updated: 2021/01/15 17:03:57 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	chek_size_flags(va_list ap, const char *fmt, int *size, int *i)
 		if (fmt[*i] == '.')
 		{
 			*i -= 1;
-			break;
+			break ;
 		}
 		if (fmt[*i + 1] == '-')
-			break;
+			break ;
 		if (fmt[*i] == '*')
 		{
 			*size = va_arg(ap, int);
-			break;
+			break ;
 		}
 		else if (fmt[*i] != '0')
 		{
 			*size = ft_atoi(fmt + *i);
-			break;
+			break ;
 		}
 		*i += 1;
 	}
@@ -83,7 +83,7 @@ int		ft_print_type(va_list ap, char fmt, t_flag *flag)
 
 void	ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 {
-	t_flag flag;
+	t_flag	flag;
 
 	flag.dot = 0;
 	flag.zero = 0;
@@ -106,7 +106,7 @@ void	ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 		|| fmt[i] == 'p' || fmt[i] == 's' || fmt[i] == 'c' || fmt[i] == '%')
 		{
 			*return_value += ft_print_type(ap, fmt[i], &flag);
-			break;
+			break ;
 		}
 	}
 }

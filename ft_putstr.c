@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 15:27:16 by dwanetta          #+#    #+#             */
-/*   Updated: 2020/11/03 21:46:11 by dwanetta         ###   ########.fr       */
+/*   Created: 2021/01/15 16:34:32 by dwanetta          #+#    #+#             */
+/*   Updated: 2021/01/15 16:34:46 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int ft_strlen(const char *str)
 	return (i);
 }
 
-int ft_putstr(char *s, int flag)
+int	ft_putstr(char *s, int flag)
 {
 	int	i;
 	int	return_value;

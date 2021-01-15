@@ -6,7 +6,7 @@
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:57:02 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/15 17:03:57 by dwanetta         ###   ########.fr       */
+/*   Updated: 2021/01/15 17:17:28 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,7 @@ void	ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 {
 	t_flag	flag;
 
-	flag.dot = 0;
-	flag.zero = 0;
-	flag.minus = 0;
-	flag.size_width = 0;
-	flag.count_simbol = 0;
+	ft_flag_init(&flag);
 	while (fmt[i++] != '\0')
 	{
 		if (fmt[i] == '-')
@@ -98,12 +94,15 @@ void	ft_check_format(va_list ap, const char *fmt, int i, int *return_value)
 			flag.zero = 1;
 		if (fmt[i] == '.')
 			flag.dot = 1;
-		if ((ft_isdigit(fmt[i]) || fmt[i] == '*') && flag.dot == 0 && flag.size_width == 0)
+		if ((ft_isdigit(fmt[i]) || fmt[i] == '*')
+		&& flag.dot == 0 && flag.size_width == 0)
 			chek_size_flags(ap, fmt, &flag.size_width, &i);
-		if ((ft_isdigit(fmt[i]) || fmt[i] == '*') && flag.dot == 1 && flag.count_simbol == 0)
+		if ((ft_isdigit(fmt[i]) || fmt[i] == '*')
+		&& flag.dot == 1 && flag.count_simbol == 0)
 			chek_size_flags(ap, fmt, &flag.count_simbol, &i);
-		if (fmt[i] == 'd' || fmt[i] == 'i' || fmt[i] == 'u' || fmt[i] == 'x' || fmt[i] == 'X'
-		|| fmt[i] == 'p' || fmt[i] == 's' || fmt[i] == 'c' || fmt[i] == '%')
+		if (fmt[i] == 'd' || fmt[i] == 'i' || fmt[i] == 'u'
+		|| fmt[i] == 'x' || fmt[i] == 'X' || fmt[i] == 'p'
+		|| fmt[i] == 's' || fmt[i] == 'c' || fmt[i] == '%')
 		{
 			*return_value += ft_print_type(ap, fmt[i], &flag);
 			break ;

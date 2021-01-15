@@ -25,11 +25,8 @@ void	ft_puthex(char fmt, unsigned int u_dec, char **hex)
 	else
 		str = "0123456789ABCDEF";
 	tmp = u_dec;
-	while (tmp > 15)
-	{
+	while (tmp > 15 && i++)
 		tmp /= 16;
-		i++;
-	}
 	if ((*hex = (char *)malloc(sizeof(char) * i + 1)) != NULL)
 	{
 		hex[0][i] = '\0';

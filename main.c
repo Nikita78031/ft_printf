@@ -8,9 +8,9 @@ int main()
 	char *b;
 	a = 2;
 	b = "abcd";
-	printf("     %d\n", ft_printf("%082.u", 4183054859u));
+	printf("     %d\n", ft_printf("|%.d, %.0d|", 0, 0));
 	printf("\n");
-	printf("     %d\n", printf("%082.u", 4183054859u));
+	printf("     %d\n", printf("|%.d, %.0d|", 0, 0));
 /*
 	int res;
 	int ft_res;

@@ -48,5 +48,6 @@ int		ft_print_format_left(t_flag *flag, int size, long int value);
 void	ft_print_hex(va_list ap, char fmt, t_flag *flag, int *return_value);
 void	ft_print_pointer(va_list ap, t_flag *flag, int *return_value);
 void	ft_print_char(va_list ap, t_flag *flag, int *return_value);
+void	ft_flag_init(t_flag	*flag);
 
 #endif

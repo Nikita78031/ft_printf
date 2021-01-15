@@ -6,13 +6,22 @@
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:32:39 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/15 16:32:58 by dwanetta         ###   ########.fr       */
+/*   Updated: 2021/01/15 17:18:49 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_format(t_flag flag, int size, long int value)
+void	ft_flag_init(t_flag *flag)
+{
+	flag->dot = 0;
+	flag->zero = 0;
+	flag->minus = 0;
+	flag->size_width = 0;
+	flag->count_simbol = 0;
+}
+
+int		ft_print_format(t_flag flag, int size, long int value)
 {
 	int		return_value;
 	char	symbol;
@@ -39,7 +48,7 @@ int	ft_print_format(t_flag flag, int size, long int value)
 	return (return_value);
 }
 
-int	ft_print_format_left(t_flag *flag, int size, long int value)
+int		ft_print_format_left(t_flag *flag, int size, long int value)
 {
 	int	return_value;
 

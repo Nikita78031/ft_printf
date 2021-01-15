@@ -20,6 +20,11 @@ void	ft_print_dec(va_list ap, t_flag *flag, int *return_value)
 	dec = va_arg(ap, int);
 	size = ft_chek(dec);
 	*return_value += ft_print_format(*flag, size, dec);
+	if (flag->size_width < 0)
+	{
+	    flag->minus = 1;
+        flag->size_width *= -1;
+    }
 	if (dec != 0 || flag->dot == 0 || flag->count_simbol != 0)
 		*return_value += ft_putnbr(dec, 1);
 	else

@@ -55,7 +55,7 @@ int		ft_print_format_left(t_flag *flag, int size, long int value)
 	return_value = 0;
 	if (flag->size_width < 0)
 	{
-		flag->minus = 1;
+	    flag->minus = 1;
 		flag->size_width *= -1;
 		if (value >= 0)
 			flag->size_width += 2;

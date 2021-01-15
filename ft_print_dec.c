@@ -19,6 +19,8 @@ void	ft_print_dec(va_list ap, t_flag *flag, int *return_value)
 
 	dec = va_arg(ap, int);
 	size = ft_chek(dec);
+    if (flag->dot == 1 && flag->zero == 1 && flag->count_simbol >= 0)
+        flag->zero = 0;
 	*return_value += ft_print_format(*flag, size, dec);
 	if (flag->size_width < 0)
 	{
@@ -39,10 +41,15 @@ void	ft_print_u_dec(va_list ap, t_flag *flag, int *return_value)
 	unsigned int	u_dec;
 	int				size;
 
-	if (flag->dot == 1)
+	if (flag->dot == 1 && flag->count_simbol >= 0)
 		flag->zero = 0;
 	u_dec = va_arg(ap, unsigned int);
 	size = ft_chek_u(u_dec);
+    if (flag->size_width < 0)
+    {
+        flag->minus = 1;
+        flag->size_width *= -1;
+    }
 	*return_value += ft_print_format(*flag, size, u_dec);
 	if (u_dec != 0 || flag->dot == 0 || flag->count_simbol != 0)
 		*return_value += ft_putnbr_u(u_dec);

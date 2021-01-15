@@ -20,7 +20,7 @@ void	ft_print_char(va_list ap, t_flag *flag, int *return_value)
 	flag->dot = 0;
 	flag->count_simbol = 0;
 	c = (char)va_arg(ap, int);
-	ft_print_format(*flag, 1, 1);
+    *return_value += ft_print_format(*flag, 1, 1);
 	flag->size_width++;
 	*return_value += ft_putchar(c);
 	*return_value += ft_print_format_left(flag, 1, 1);

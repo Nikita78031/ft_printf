@@ -3,13 +3,6 @@
 
 int main()
 {
-/*	int a;
-	char *b;
-	a = 2;
-	b = "abcd";
-	printf("     %d\n", ft_printf("|%*.*d|",-2, 0, 0));
-	printf("\n");
-	printf("     %d\n", printf("|%*.*d|",-2, 0, 0));*/
     int		a = -4;
     int		b = 0;
     char	c = 'a';
@@ -37,16 +30,16 @@ int main()
         b = -2;
         while (b < 5)
         {
-            printf(" --- Return : %d\n", ft_printf("ft_prin %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-            printf(" --- Return : %d\n", printf("printf %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-            printf(" --- Return : %d\n", ft_printf("ft_prin %-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-            printf(" --- Return : %d\n", printf("printf %-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-            printf(" --- Return : %d\n", ft_printf("ft_prin %0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-            printf(" --- Return : %d\n", printf("printf %0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+/*            printf(" --- Return : %d a = %d b = %d\n", ft_printf("ft_printf |%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u), a, b);
+            printf(" --- Return : %d a = %d b = %d\n",          printf("printf    |%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u), a, b);
+            printf("-----------------------------------------------\n");*/
             b++;
         }
         a++;
     }
+    printf("     %d\n", ft_printf("|%1.p|", NULL));
+    printf("\n");
+    printf("     %d\n", printf("|%1.p|", NULL));
 /*
 	int res;
 	int ft_res;

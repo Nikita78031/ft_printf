@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hex.c                                    :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:29:58 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/15 16:30:01 by dwanetta         ###   ########.fr       */
+/*   Updated: 2021/01/16 20:27:01 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_print_pointer(va_list ap, t_flag *flag, int *return_value)
 	flag->size_width++;
 	*return_value += ft_putstr(hex, size);
 	if (flag->size_width == 0)
-        flag->size_width = 1;
+		flag->size_width = 1;
 	*return_value += ft_print_format_left(flag, size, 1);
 	if (hex != NULL)
 		free(hex);

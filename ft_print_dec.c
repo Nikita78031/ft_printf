@@ -6,16 +6,16 @@
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 03:18:35 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/16 03:18:35 by dwanetta         ###   ########.fr       */
+/*   Updated: 2021/01/16 20:25:37 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_print_dec(va_list ap, t_flag *flag, int *return_value)
+void	ft_print_dec(va_list ap, t_flag *flag, int *return_value)
 {
-	int dec;
-	int size;
+	int	dec;
+	int	size;
 
 	dec = va_arg(ap, int);
 	size = ft_chek(dec);
@@ -36,10 +36,10 @@ void ft_print_dec(va_list ap, t_flag *flag, int *return_value)
 	*return_value += ft_print_format_left(flag, size, dec);
 }
 
-void ft_print_u_dec(va_list ap, t_flag *flag, int *return_value)
+void	ft_print_u_dec(va_list ap, t_flag *flag, int *return_value)
 {
-	unsigned int u_dec;
-	int size;
+	unsigned int	u_dec;
+	int				size;
 
 	if (flag->dot == 1 && flag->count_simbol >= 0)
 		flag->zero = 0;

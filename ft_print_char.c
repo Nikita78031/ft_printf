@@ -5,31 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 16:55:20 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/15 16:55:21 by dwanetta         ###   ########.fr       */
+/*   Created: 2021/01/16 03:17:50 by dwanetta          #+#    #+#             */
+/*   Updated: 2021/01/16 03:17:50 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_char(va_list ap, t_flag *flag, int *return_value)
+void ft_print_char(va_list ap, t_flag *flag, int *return_value)
 {
-	char	c;
+	char c;
 
 	flag->zero = 0;
 	flag->dot = 0;
 	flag->count_simbol = 0;
 	c = (char)va_arg(ap, int);
-    *return_value += ft_print_format(*flag, 1, 1);
+	*return_value += ft_print_format(*flag, 1, 1);
 	flag->size_width++;
 	*return_value += ft_putchar(c);
 	*return_value += ft_print_format_left(flag, 1, 1);
 }
 
-void	ft_print_str(va_list ap, t_flag *flag, int *return_value)
+void ft_print_str(va_list ap, t_flag *flag, int *return_value)
 {
-	char	*str;
-	int		size;
+	char *str;
+	int size;
 
 	flag->zero = 0;
 	str = va_arg(ap, char *);
@@ -45,7 +45,7 @@ void	ft_print_str(va_list ap, t_flag *flag, int *return_value)
 	*return_value += ft_print_format_left(flag, size, 1);
 }
 
-void	ft_print_procent(t_flag *flag, int *return_value)
+void ft_print_procent(t_flag *flag, int *return_value)
 {
 	flag->dot = 0;
 	flag->count_simbol = 0;

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwanetta <dwanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 16:32:39 by dwanetta          #+#    #+#             */
-/*   Updated: 2021/01/15 17:28:19 by dwanetta         ###   ########.fr       */
+/*   Created: 2021/01/16 03:19:49 by dwanetta          #+#    #+#             */
+/*   Updated: 2021/01/16 03:19:49 by dwanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_flag_init(t_flag *flag)
+void ft_flag_init(t_flag *flag)
 {
 	flag->dot = 0;
 	flag->zero = 0;
@@ -21,10 +21,10 @@ void	ft_flag_init(t_flag *flag)
 	flag->count_simbol = 0;
 }
 
-int		ft_print_format(t_flag flag, int size, long int value)
+int ft_print_format(t_flag flag, int size, long int value)
 {
-	int		return_value;
-	char	symbol;
+	int return_value;
+	char symbol;
 
 	return_value = 0;
 	if (value == 0 && flag.dot != 0 && flag.count_simbol == 0)
@@ -48,14 +48,14 @@ int		ft_print_format(t_flag flag, int size, long int value)
 	return (return_value);
 }
 
-int		ft_print_format_left(t_flag *flag, int size, long int value)
+int ft_print_format_left(t_flag *flag, int size, long int value)
 {
-	int	return_value;
+	int return_value;
 
 	return_value = 0;
 	if (flag->size_width <= 0)
 	{
-	    flag->minus = 1;
+		flag->minus = 1;
 		flag->size_width *= -1;
 		if (value >= 0)
 			flag->size_width += 2;
@@ -63,7 +63,7 @@ int		ft_print_format_left(t_flag *flag, int size, long int value)
 	if (flag->minus == 1 && flag->count_simbol < size)
 		flag->count_simbol = size;
 	while (flag->minus == 1 &&
-	(flag->size_width--) - flag->count_simbol - 1 > 0)
+		   (flag->size_width--) - flag->count_simbol - 1 > 0)
 		return_value += ft_putchar(' ');
 	return (return_value);
 }

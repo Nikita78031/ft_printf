@@ -21,15 +21,15 @@ void	ft_print_hex(va_list ap, char fmt, t_flag *flag, int *return_value)
 	u_dec = va_arg(ap, unsigned int);
 	ft_puthex(fmt, u_dec, &hex);
 	size = ft_strlen(hex);
-    if (flag->dot == 1 && flag->count_simbol >= 0)
-        flag->zero = 0;
+	if (flag->dot == 1 && flag->count_simbol >= 0)
+		flag->zero = 0;
 	if (flag->dot == 1 && flag->count_simbol == 0 && u_dec == 0)
 		size = 0;
-    if (flag->size_width < 0)
-    {
-        flag->minus = 1;
-        flag->size_width *= -1;
-    }
+	if (flag->size_width < 0)
+	{
+		flag->minus = 1;
+		flag->size_width *= -1;
+	}
 	*return_value += ft_print_format(*flag, size, 1);
 	flag->size_width++;
 	*return_value += ft_putstr(hex, size);

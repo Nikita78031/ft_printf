@@ -30,9 +30,9 @@ int main()
         b = -2;
         while (b < 5)
         {
-/*            printf(" --- Return : %d a = %d b = %d\n", ft_printf("ft_printf |%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u), a, b);
+            printf(" --- Return : %d a = %d b = %d\n", ft_printf("ft_printf |%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u), a, b);
             printf(" --- Return : %d a = %d b = %d\n",          printf("printf    |%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u), a, b);
-            printf("-----------------------------------------------\n");*/
+            printf("-----------------------------------------------\n");
             b++;
         }
         a++;
@@ -40,7 +40,7 @@ int main()
     printf("     %d\n", ft_printf("|%1.p|", NULL));
     printf("\n");
     printf("     %d\n", printf("|%1.p|", NULL));
-/*
+
 	int res;
 	int ft_res;
 
@@ -79,41 +79,41 @@ int main()
 	printf("-----------------   test string end   -----------------\n\n\n");
 
 	printf("-----------------   test pointer start   -----------------\n");
-	char *s = malloc(1);
+	char *ss = malloc(1);
 	res = printf("   printf ----- %p\n", NULL);
 	ft_res = ft_printf("ft_printf ----- %p\n", NULL);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %p\n", &s);
+	res = printf("   printf ----- %p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %20p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %20p\n", &s);
+	res = printf("   printf ----- %20p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %20p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %020p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %020p\n", &s);
+	res = printf("   printf ----- %020p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %020p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
 	res = printf("   printf ----- %020p\n", NULL);
 	ft_res = ft_printf("ft_printf ----- %020p\n", NULL);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %35.55p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %35.55p\n", &s);
+	res = printf("   printf ----- %35.55p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %35.55p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %035.15p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %035.15p\n", &s);
+	res = printf("   printf ----- %035.15p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %035.15p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %35.5p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %35.5p\n", &s);
+	res = printf("   printf ----- %35.5p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %35.5p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %0*.15p\n", 40, &s);
-	ft_res = ft_printf("ft_printf ----- %0*.15p\n", 40, &s);
+	res = printf("   printf ----- %0*.15p\n", 40, &ss);
+	ft_res = ft_printf("ft_printf ----- %0*.15p\n", 40, &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
 	res = printf("   printf ----- %05p\n", NULL);
@@ -124,12 +124,12 @@ int main()
 	ft_res = ft_printf("ft_printf ----- %5p\n", NULL);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %70p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %70p\n", &s);
+	res = printf("   printf ----- %70p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %70p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- |%-70p|\n", &s);
-	ft_res = ft_printf("ft_printf ----- |%-70p|\n", &s);
+	res = printf("   printf ----- |%-70p|\n", &ss);
+	ft_res = ft_printf("ft_printf ----- |%-70p|\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("-----------------   test pointer end   -----------------\n\n\n");
 
@@ -404,26 +404,11 @@ int main()
 	ft_res = ft_printf("ft_printf ----- |%.5p|\n", 0);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
 	printf("**************************************************\n");
-	res = printf("   printf ----- %020p\n", &s);
-	ft_res = ft_printf("ft_printf ----- %020p\n", &s);
+	res = printf("   printf ----- %020p\n", &ss);
+	ft_res = ft_printf("ft_printf ----- %020p\n", &ss);
 	printf("res = %d          ft_res = %d\n", res, ft_res);
-	printf("**************************************************\n");
-	res = printf("   printf ----- |%5|\n");
-	ft_res = ft_printf("ft_printf ----- |%5|\n");
-	printf("res = %d          ft_res = %d\n", res, ft_res);
-	printf("**************************************************\n");
-	res = printf("   printf ----- |%5.0| |%s|\n", &s);
-	ft_res = ft_printf("ft_printf ----- |%5.0| |%s|\n", &s);
-	printf("res = %d          ft_res = %d\n", res, ft_res, "q2er", "123 4324refwa", 123234);
-	printf("**************************************************\n");
-	res = printf("   printf ----- |%5| |%s|\n", &s);
-	ft_res = ft_printf("ft_printf ----- |%5| |%s|\n", &s);
-	printf("res = %d          ft_res = %d\n", res, ft_res, "q2er", "123 4324refwa", 123234);
-	res = printf("   printf ----- %", &s);
-	ft_res = ft_printf("ft_printf ----- %", &s);
-	printf("\nres = %d          ft_res = %d\n", res, ft_res);
-	printf("---------------------------------------------------------\n", &s);
+	printf("---------------------------------------------------------\n", &ss);
 	ft_printf("%%%%%%%%d\n", 42);
-	printf("%%%%%%%%d\n", 42);*/
+	printf("%%%%%%%%d\n", 42);
 	return 0;
 }
